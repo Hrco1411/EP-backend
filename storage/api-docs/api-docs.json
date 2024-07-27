@@ -1,0 +1,1060 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TripHarmony API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/driver": {
+            "get": {
+                "tags": [
+                    "Driver"
+                ],
+                "summary": "Get the user and associated driver model",
+                "operationId": "7eea88fbd7ab71201216811981c881a3",
+                "responses": {
+                    "200": {
+                        "description": "The user and associated driver model",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        },
+                                        "driver": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "user_id": {
+                                                    "type": "integer"
+                                                },
+                                                "year": {
+                                                    "type": "integer"
+                                                },
+                                                "make": {
+                                                    "type": "string"
+                                                },
+                                                "model": {
+                                                    "type": "string"
+                                                },
+                                                "color": {
+                                                    "type": "string"
+                                                },
+                                                "license_plate": {
+                                                    "type": "string"
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Driver"
+                ],
+                "summary": "Update the user and associated driver model",
+                "operationId": "879e64e80ab11ff45f5ff2e09ed7fa15",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "year",
+                                    "make",
+                                    "model",
+                                    "color",
+                                    "license_plate",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "year": {
+                                        "type": "integer",
+                                        "example": 2010
+                                    },
+                                    "make": {
+                                        "type": "string",
+                                        "example": "Toyota"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "Corolla"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "example": "Red"
+                                    },
+                                    "license_plate": {
+                                        "type": "string",
+                                        "example": "ABC123"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The user and associated driver model",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        },
+                                        "driver": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "user_id": {
+                                                    "type": "integer"
+                                                },
+                                                "year": {
+                                                    "type": "integer"
+                                                },
+                                                "make": {
+                                                    "type": "string"
+                                                },
+                                                "model": {
+                                                    "type": "string"
+                                                },
+                                                "color": {
+                                                    "type": "string"
+                                                },
+                                                "license_plate": {
+                                                    "type": "string"
+                                                },
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login/": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Submit phone number for login",
+                "operationId": "313aedaae92b645eb32a3eb5f1036130",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+38763123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A login code has been sent to your phone number.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A login code has been sent to your phone number."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Could not process a user with that phone number.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Could not process a user with that phone number."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login/verify": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Verify the login code",
+                "operationId": "6fbafaa949de090931778e350ab966f4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "phone",
+                                    "login_code"
+                                ],
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+38763123456"
+                                    },
+                                    "login_code": {
+                                        "type": "integer",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A token has been issued.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "2|3d4f3g5h6j7k8l9"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Could not verify the login code.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Could not verify the login code."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/trip": {
+            "post": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "Create a new trip",
+                "operationId": "6a4632b24da82a47cafb6a2eed78bd33",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "origin",
+                                    "destination",
+                                    "destination_name"
+                                ],
+                                "properties": {
+                                    "origin": {
+                                        "properties": {
+                                            "lat": {
+                                                "type": "number",
+                                                "example": 37.7749
+                                            },
+                                            "lng": {
+                                                "type": "number",
+                                                "example": -122.4194
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "destination": {
+                                        "properties": {
+                                            "lat": {
+                                                "type": "number",
+                                                "example": 37.7749
+                                            },
+                                            "lng": {
+                                                "type": "number",
+                                                "example": -122.4194
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "destination_name": {
+                                        "type": "string",
+                                        "example": "San Francisco"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The new trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": null
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip/{trip}": {
+            "get": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "Get a trip",
+                "operationId": "42f69025753d2723c9c17d46dda66878",
+                "parameters": [
+                    {
+                        "name": "trip",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": null
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cannot find this trip.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Cannot find this trip."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip/{trip}/accept": {
+            "post": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "Accept a trip",
+                "operationId": "0cfd13f24e5ef2a3896abe5b61878afc",
+                "parameters": [
+                    {
+                        "name": "trip",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "driver_location"
+                                ],
+                                "properties": {
+                                    "driver_location": {
+                                        "properties": {
+                                            "lat": {
+                                                "type": "number",
+                                                "example": 37.7749
+                                            },
+                                            "lng": {
+                                                "type": "number",
+                                                "example": -122.4194
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip/{trip}/start": {
+            "post": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "Start a trip",
+                "operationId": "96b786bba3e7666f6332028431290120",
+                "parameters": [
+                    {
+                        "name": "trip",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": null
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip/{trip}/end": {
+            "post": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "End a trip",
+                "operationId": "5225cabce3e711b561aeb735c2542c8b",
+                "parameters": [
+                    {
+                        "name": "trip",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "example": null
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip/{trip}/location": {
+            "post": {
+                "tags": [
+                    "Trip"
+                ],
+                "summary": "Update the driver's current location",
+                "operationId": "06eca12010a6e6c3e13bd1377f9de989",
+                "parameters": [
+                    {
+                        "name": "trip",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "driver_location"
+                                ],
+                                "properties": {
+                                    "driver_location": {
+                                        "properties": {
+                                            "lat": {
+                                                "type": "number",
+                                                "example": 37.7749
+                                            },
+                                            "lng": {
+                                                "type": "number",
+                                                "example": -122.4194
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The trip",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "type": "integer"
+                                        },
+                                        "origin": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "destination_name": {
+                                            "type": "string"
+                                        },
+                                        "driver_id": {
+                                            "type": "integer",
+                                            "example": null
+                                        },
+                                        "driver_location": {
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "is_started": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "is_complete": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Driver",
+            "description": "Driver"
+        },
+        {
+            "name": "Login",
+            "description": "Login"
+        },
+        {
+            "name": "Trip",
+            "description": "Trip"
+        }
+    ]
+}
